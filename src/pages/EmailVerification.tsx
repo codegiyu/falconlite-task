@@ -10,6 +10,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import { VerificationInputProps, VerificationInputValues } from "../components/VerificationInput";
 import useAlertStore, { AlertObj } from "../store/zustand/alertStore";
 import { useNavigate, useParams } from "react-router-dom";
+import SEO, { SEOProps } from "../components/SEO";
 
 interface VerificationInputValueState extends VerificationInputValues {
     total: () => string;
@@ -206,8 +207,14 @@ const EmailVerification: React.FC = () => {
         handleFormSubmit
     }
 
+    const seoObj: SEOProps = {
+        title: "Email Verification - FalconLite Inc",
+        desc: "Falconlite is platform that allows users to make cross border transactions. Our platform enables users to send, receive and transact globally."
+    }
+
     return (
         <AuthLayout>
+            <SEO seoProps={seoObj} />
             <section className={classes.title_section}>
                 <ErrorBoundary>
                     <TitleBox titleProps={titleBoxProps} />

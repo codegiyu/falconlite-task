@@ -1,12 +1,16 @@
 import { Helmet } from "react-helmet-async";
 
-interface SEOProps {
+export interface SEOProps {
     title: string;
     desc: string;
 }
 
-const SEO: React.FC<SEOProps> = (props) => {
-    let {title, desc} = props
+interface Props {
+    seoProps: SEOProps;
+}
+
+const SEO: React.FC<Props> = (props) => {
+    let {title, desc} = props.seoProps
 
     return (
         <Helmet>

@@ -12,6 +12,7 @@ import { TitleProps } from "../components/TitleBox";
 import { Link, useNavigate } from "react-router-dom";
 import { ResponseDataObject } from "./EmailVerification";
 import useAlertStore, { AlertObj } from "../store/zustand/alertStore";
+import SEO, { SEOProps } from "../components/SEO";
 
 interface InputValues {
     name: string;
@@ -232,8 +233,14 @@ const Register: React.FC = () => {
         handleFormSubmit
     }
 
+    const seoObj: SEOProps = {
+        title: "Register - FalconLite Inc",
+        desc: "Falconlite is platform that allows users to make cross border transactions. Our platform enables users to send, receive and transact globally."
+    }
+
     return (
         <AuthLayout>
+            <SEO seoProps={seoObj} />
             <section className={classes.title_section}>
                 <ErrorBoundary>
                     <TitleBox titleProps={titleBoxProps} />
