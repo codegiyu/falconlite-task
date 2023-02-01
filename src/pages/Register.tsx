@@ -129,14 +129,14 @@ const Register: React.FC = () => {
         }
 
         if (fieldsAreErrorFree() && fieldsAreNotEmpty()) {
-            let payload = values
+            let payload = `name=${values.name}&email=${values.email}&phone=${values.phone}&password=${values.password}`
     
             try {
                 const response = await fetch("https://falconlite.com/v1/api/send-email",{
                     method: "POST",
-                    body: JSON.stringify(payload),
+                    body: payload,
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/x-www-form-urlencoded"
                     }
                 })
     
@@ -145,7 +145,12 @@ const Register: React.FC = () => {
                     const data: ResponseDataObject = JSON.parse(dataString)                    
                     console.log(data)
                     if (data.success) {
-                        navigate(`/email-verification/${data.data.verification_code}`, {replace: true})
+                        const alertProps: AlertObj = {
+                            message: data.data.message,
+                            type: "success"
+                        }
+                        setAlert(alertProps)
+                        navigate(`/email-verification`, {replace: true})
                         setDisabled(false)
                         setLoading(false)
                     } else {

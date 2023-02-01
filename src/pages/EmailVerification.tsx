@@ -9,7 +9,7 @@ import { TitleProps } from "../components/TitleBox";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { VerificationInputProps, VerificationInputValues } from "../components/VerificationInput";
 import useAlertStore, { AlertObj } from "../store/zustand/alertStore";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SEO, { SEOProps } from "../components/SEO";
 
 interface VerificationInputValueState extends VerificationInputValues {
@@ -43,15 +43,7 @@ const EmailVerification: React.FC = () => {
 
     const setAlert = useAlertStore(state => state.setAlert)
 
-    const codeParam = useParams().code
     const navigate = useNavigate()
-
-    // useEffect(() => {
-    //     if (!codeParam) {
-    //         setAlert({ message: "Please register first to get a verification code", type: "error" })
-    //         navigate("/")
-    //     }
-    // })
 
     let [disabled, setDisabled] = useState<boolean>(false)
     let [loading, setLoading] = useState<boolean>(false)
@@ -149,14 +141,14 @@ const EmailVerification: React.FC = () => {
         setDisabled(true)
         setLoading(true)
 
-        let payload = { code: value.total() }
-
+        let payload = `code=${value.total()}`
+        console.log(payload)
         try {
             const response = await fetch("https://falconlite.com/v1/api/verify-email",{
                 method: "POST",
-                body: JSON.stringify(payload),
+                body: payload,
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/x-www-form-urlencoded"
                 }
             })
 
@@ -165,6 +157,11 @@ const EmailVerification: React.FC = () => {
                 const data: ResponseDataObject = JSON.parse(dataString)        
                 console.log(data)
                 if (data.success) {
+                    const alertProps: AlertObj = {
+                        message: data.data.message,
+                        type: "success"
+                    }
+                    setAlert(alertProps)
                     navigate("/success", {replace: true})
                     setLoading(false)
                 } else {
