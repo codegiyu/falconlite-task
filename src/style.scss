@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500&family=Poppins:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  accent-color: #9191DB;
+}
+
+//  GLOBAL VARIABLES
+
+$ff-inter: "Inter", "sans-serif";
+$ff-poppins: "Poppins", "sans-serif";
+$ff-montserrat: "Montserrat", "sans-serif";
+
+$color-teal: #01C8FF;
+$color-portage: #9191DB;
+$color-light: #F5F5F5;
+$color-dark: #4B4A4A;
+$color-dark79: #4B4A4A79;
+$color-dark47: #4B4A4A47;
+$color-black: #0D0D26;
+$color-yellow: #E9B200;
+$color-green: #39CD62;
+$color-red: #E4033B;
+
+// GLOBAL MIXINS
+
+@mixin devices ($breakpoint) {
+  @if $breakpoint == xl {
+    @media only screen and (max-width: 1439.99px) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media only screen and (max-width: 1199.99px) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media only screen and (max-width: 991.99px) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media only screen and (max-width: 767.99px) {
+      @content;
+    }
+  }
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 464.99px) {
+      @content;
+    }
+  }
+}

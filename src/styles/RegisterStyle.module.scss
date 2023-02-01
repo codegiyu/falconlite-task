@@ -1,0 +1,140 @@
+@use "../style.scss";
+
+.title_section {
+    width: 100%;
+
+    @include style.devices(md) {
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    @include style.devices(sm) {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    @include style.devices(mobile) {
+        padding: 0;
+    }
+}
+
+.form_section {
+    width: 100%;
+
+    & form {
+        width: 100%;
+        padding-bottom: 58px;
+
+        & fieldset {
+            width: 100%;
+            padding-right: 57px;
+            border: none;
+            outline: none;
+        }
+
+        & .remember_me_wrap{
+            width: max-content;
+            margin-top: -6px;
+
+            & label {
+                width: max-content;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 4.25px 1.75px;
+
+                & div {
+                    position: relative;
+
+                    & .check_icon {
+                        // display: none;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translateX(-50%) translateY(-50%);
+                        font-size: 8px;
+                        line-height: 8px;
+                        color: style.$color-light;
+                        z-index: 3;
+                    }
+                }
+
+                & input {
+                    appearance: none;
+                    width: 12.5px;
+                    aspect-ratio: 1;
+                    background: transparent;
+                    border: 2px solid style.$color-portage;
+                    color: white;
+
+                    &:checked {
+                        background: style.$color-portage;
+                    }
+                }
+
+                & span {
+                    font-family: style.$ff-poppins;
+                    font-weight: 400;
+                    font-size: 13.33px;
+                    line-height: 20px;
+                    letter-spacing: 0.01em;
+                    color: #A8D8D8;
+                }
+            }
+        }
+
+        & .button_wrap {
+            width: 100%;
+            padding: 0 180px;
+            margin-top: 38px;
+        }
+
+        & .sign_in_link {
+            width: 100%;
+            text-align: center;
+            font-family: style.$ff-montserrat;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 0.01em;
+            margin-top: 20px;
+
+            & a {
+                color: style.$color-teal;
+            }
+
+            & span {
+                width: max-content;
+            }
+        }
+    }
+
+    @include style.devices(lg) {
+
+        & form fieldset {
+            padding-right: 0;
+        }
+    }
+
+    @include style.devices(md) {
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    @include style.devices(sm) {
+        width: 100%;
+        padding: 0 16px;
+
+        & form .button_wrap {
+            padding: 0 80px;
+        }
+    }
+
+    @include style.devices(mobile) {
+        padding: 0;
+
+        & form .button_wrap {
+            padding: 0 20px;
+        }
+    }
+}

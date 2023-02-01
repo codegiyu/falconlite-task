@@ -1,0 +1,26 @@
+@use "../style.scss";
+
+.button {
+    width: 100%;
+    background: style.$color-teal;
+    padding: 13px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-family: style.$ff-montserrat;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    color: style.$color-dark;
+
+    &:disabled {
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
+
+    &:active {
+        transform: scale(95%);
+    }
+
+    @in
+}

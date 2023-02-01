@@ -1,0 +1,56 @@
+@use "../style.scss";
+
+.verification_box_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    & input {
+        width: 78px;
+        aspect-ratio: 0.8;
+        display: flex;
+        align-items: center;
+        padding: 22px 0;
+        text-align: center;
+        border: 1.5px solid style.$color-teal;
+        border-radius: 5px;
+        outline: none;
+        background: transparent;
+        font-size: 40px;
+        line-height: 53px;
+        color: style.$color-dark;
+
+        &:focus {
+            border-width: 2px;
+            box-shadow: 0 0 1px 2px #01C8FF45;
+        }
+
+        &:hover {
+            box-shadow: 0 0 1px 2px #01C8FF45;
+        }
+    }
+
+    @include style.devices(lg) {
+        
+        & input {
+            width: 65px;
+        }
+    }
+
+    @include style.devices(sm) {
+        
+        & input {
+            width: 60px;
+            font-size: 30;
+        }
+    }
+
+    @include style.devices(mobile) {
+        
+        & input {
+            width: 40px;
+            font-size: 18px;
+        }
+    }
+}

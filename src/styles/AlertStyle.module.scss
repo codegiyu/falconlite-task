@@ -1,0 +1,128 @@
+@use "../style.scss";
+
+
+.alert__main_wrap {
+    width: 500px;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 900;
+    border-radius: 5px;
+    transform: translateX(-50%);
+
+    & .alert__line {
+        height: 1.5px;
+        float: right;
+    }
+
+    @include style.devices(md) {
+        top: 120px;
+    }
+
+    @include style.devices(sm) {
+        width: 95%;
+        top: 70px;
+    }
+}
+
+.alert__wrap {
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    display: flex;
+    align-items: stretch;
+
+    & .type_wrap {
+        width: 10%;
+        height: 100%;
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > span {
+            color: #FFFFFF;
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > .alert_icon {
+                font-size: 30px;
+                background: transparent;
+                color:#FFFFFF;
+            }
+        }
+    }
+
+    & .message_wrap {
+        flex: 1;
+        height: 100%;
+        padding: 15px;
+        font-family: style.$ff-poppins;
+        font-size: 14px;
+        line-height: 20px;
+        color: style.$color-dark;
+    }
+    
+    & .close_wrap {
+        width: auto;
+        height: 100%;
+        flex: none;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+
+        & > span {
+            width:100%;
+            height: 100%;
+            color: style.$color-red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > .close_icon {
+                font-size: 20px;
+                transition: 0.2s;
+    
+                &:hover {
+                    transform: scale(1.3);
+                }
+    
+                &:focus {
+                    transform: scale(1.3);
+                }
+    
+                &:active {
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
+
+    @include style.devices(md) {
+
+        & .close_wrap {
+            & .close_icon {
+                font-size: 30px;
+            }
+        }
+    }
+
+    @include style.devices(sm) {
+
+        & .type_wrap {
+            width: 15%;
+        }
+
+        & .message_wrap {
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            line-height: 16px;
+        }
+    }
+}

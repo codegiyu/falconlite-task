@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+import './style.scss';
+import Register from "./pages/Register";
+import EmailVerification from "./pages/EmailVerification";
+import Success from "./pages/Success";
+import NoPage from "./pages/NoPage";
+import ErrorBoundary from "./components/ErrorBoundary";
+import Alert from "./components/Alert";
 
-function App() {
+
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <Alert />
+      </ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Register />} />
+          <Route path="/email-verification/" element={<EmailVerification />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

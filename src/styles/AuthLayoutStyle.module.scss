@@ -1,0 +1,37 @@
+@use "../style.scss";
+
+.page_body {
+    width: 100%;
+    min-height: 100vh;
+    background: style.$color-light;
+    display: grid;
+    grid-template-columns: 59% 41%;
+    grid-template-rows: 100%;
+    align-items: stretch;
+
+    & .main_section {
+        padding: 0 60px;
+    }
+
+    @include style.devices(lg) {
+        
+        & .main_section {
+            padding: 0 30px;
+        }
+    }
+
+    @include style.devices(md) {
+        grid-template-columns: 100%;
+
+        & .image_section {
+            display: none;
+        }
+    }
+
+    @include style.devices(mobile) {
+        
+        & .main_section {
+            padding: 0 16px;
+        }
+    }
+}

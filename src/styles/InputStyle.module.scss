@@ -1,0 +1,109 @@
+@use "../style.scss";
+
+.input_wrap {
+    width: 100%;
+    font-family: style.$ff-inter;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 18px;
+
+    & label {
+
+        & span {
+            font-size: 14px;
+            line-height: 17px;
+            color: style.$color-dark79;
+        }
+
+        & input {
+            width: 100%;
+            background: transparent;
+            border: 1.5px solid style.$color-teal;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+            line-height: 20px;
+            color: style.$color-dark;
+            padding: 23px 21px;
+            margin-top: 6px;
+
+            &::placeholder {
+                color: style.$color-dark47;
+            }
+
+            &:focus {
+                box-shadow: 0 0 2px 4px #01C8FF45;
+            }
+
+            &:hover {
+                box-shadow: 0 0 1px 2px #01C8FF45;
+            }
+        }
+
+        & input.error {
+            border: 1.5px solid style.$color-red;
+
+            &:focus {
+                box-shadow: 0 0 2px 4px #E4033B45;
+            }
+
+            &:hover {
+                box-shadow: 0 0 1px 2px #E4033B45;
+            }
+        }
+    }
+    
+    & .password_toggler_box {
+        position: absolute;
+        right: 21px;
+        bottom: 23px;
+
+        & .eye_icon {
+            font-size: 16px;
+            line-height: 20px;
+            color: style.$color-dark;
+
+            &:hover {
+                color: style.$color-teal;
+            }
+        }
+    }
+
+    & .error_text_wrap {
+        width: 100%;
+        padding-top: 5px;
+        position: absolute;
+        left: 0;
+        bottom: -21px;
+        // text-align: right;
+
+        & p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            color: style.$color-red;
+            text-align: right;
+        }
+    }
+
+    @include style.devices(mobile) {
+
+        & label input {
+            padding: 14px 12px;
+        }
+
+        & .password_toggler_box {
+            right: 12px;
+            bottom: 14px;
+        }
+
+        & .error_text_wrap {
+            bottom: -16px;
+
+            & p {
+                font-size: 12px;
+                line-height: 14px;
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+@use "../style.scss";
+
+.title_section {
+    margin-top: 56px;
+    width: 100%;
+
+    @include style.devices(md) {
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    @include style.devices(sm) {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    @include style.devices(mobile) {
+        padding: 0;
+    }
+}
+
+.form_section {
+    width: 100%;
+
+    & .inputs_wrap {
+        width: 100%;
+        margin: 120px 0 150px;
+    }
+
+    & .button_wrap {
+        width: 100%;
+        padding: 0 180px;
+    }
+
+    @include style.devices(sm) {
+
+        & .button_wrap {
+            padding: 0 80px;
+        }
+    }
+
+    @include style.devices(mobile) {
+
+        & .inputs_wrap {
+            margin: 60px 0 75px;
+        }
+
+        & .button_wrap {
+            padding: 0 20px;
+        }
+    }
+}

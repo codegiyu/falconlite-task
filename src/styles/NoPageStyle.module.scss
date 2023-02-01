@@ -1,0 +1,50 @@
+@use "../style.scss";
+
+.success_section {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h1 {
+        font-family: style.$ff-inter;
+        font-weight: 700;
+        font-size: 120px;
+        line-height: 1;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: style.$color-teal;
+    }
+
+    & p {
+        width: 300px;
+        margin-top: 20px;
+        font-family: style.$ff-montserrat;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 29px;
+        text-align: center;
+        color: style.$color-dark;
+    }
+
+    & .button_wrap {
+        width: 100%;
+        padding: 0 180px;
+        margin: 100px 0;
+    }
+
+    @include style.devices(sm) {
+
+        & .button_wrap {
+            padding: 0 80px;
+        }
+    }
+
+    @include style.devices(mobile) {
+
+        & .button_wrap {
+            padding: 0px;
+        }
+    }
+}

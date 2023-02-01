@@ -1,0 +1,56 @@
+@use "../style.scss";
+
+.success_section {
+    width: 100%;
+    margin-top: 106px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & img {
+        width: 300px;
+        aspect-ratio: 1;
+    }
+
+    & p {
+        width: 300px;
+        margin-top: 20px;
+        font-family: style.$ff-montserrat;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: style.$color-dark;
+    }
+
+    & .button_wrap {
+        width: 100%;
+        padding: 0 180px;
+        margin: 100px 0;
+    }
+
+    @include style.devices(sm) {
+        margin-top: 50px;
+
+        & img {
+            width: 250px;
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 24px;
+        }
+
+        & .button_wrap {
+            padding: 0 80px;
+        }
+    }
+
+    @include style.devices(mobile) {
+
+        & .button_wrap {
+            padding: 0;
+        }
+    }
+}

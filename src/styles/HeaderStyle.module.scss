@@ -1,0 +1,16 @@
+@use "../style.scss";
+
+.header {
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+
+    & .logo-link {
+        width: fit-content;
+    }
+
+    @include style.devices(sm) {
+        padding-top: 25px;
+    }
+}
